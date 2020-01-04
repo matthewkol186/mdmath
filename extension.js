@@ -108,9 +108,21 @@ const htmlTmpl = (html,usrcss) => `<!doctype html><html><head><meta charset="utf
 <link rel="stylesheet" href="https://gitcdn.xyz/repo/goessner/mdmath/master/css/texmath.css">
 <link rel="stylesheet" href="https://gitcdn.xyz/repo/goessner/mdmath/master/css/vscode-texmath.css">
 ${usrcss ? `<link rel="stylesheet" href="${usrcss}">` : ''}
-</head><body>
+<style>
+.markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 45px;
+}
+@media (max-width: 767px) {
+    .markdown-body {
+        padding: 15px;
+    }
+}
+</style>
+</head>
+<body class="markdown-body">
 ${html}
 </body></html>`.replace('vscode-resource:','');
-
-
-//  class="markdown-body"
